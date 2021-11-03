@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/util-multilanguage",
+  "sourceRoot": "libs/util-multilanguage/src",
+  "prefix": "learning-angular",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/util-multilanguage"],
+      "options": {
+        "jestConfig": "libs/util-multilanguage/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/util-multilanguage/src/**/*.ts",
+          "libs/util-multilanguage/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

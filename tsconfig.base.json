@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@learning-angular/util-multilanguage": [
+        "libs/util-multilanguage/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

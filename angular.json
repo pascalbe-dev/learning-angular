@@ -1,14 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
+  "defaultProject": "util-multilanguage",
   "projects": {
     "sample-angular-app": {
       "projectType": "application",
       "root": "apps/sample-angular-app",
       "sourceRoot": "apps/sample-angular-app/src",
       "prefix": "learning-angular",
-      "architect": {
+      "targets": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "executor": "@angular-devkit/build-angular:browser",
           "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/sample-angular-app",
@@ -58,7 +59,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "executor": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "sample-angular-app:build:production"
@@ -70,13 +71,13 @@
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "executor": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "sample-angular-app:build"
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
               "apps/sample-angular-app/src/**/*.ts",
@@ -85,7 +86,7 @@
           }
         },
         "test": {
-          "builder": "@nrwl/jest:jest",
+          "executor": "@nrwl/jest:jest",
           "outputs": ["coverage/apps/sample-angular-app"],
           "options": {
             "jestConfig": "apps/sample-angular-app/jest.config.js",
@@ -99,9 +100,9 @@
       "root": "apps/sample-angular-app-e2e",
       "sourceRoot": "apps/sample-angular-app-e2e/src",
       "projectType": "application",
-      "architect": {
+      "targets": {
         "e2e": {
-          "builder": "@nrwl/cypress:cypress",
+          "executor": "@nrwl/cypress:cypress",
           "options": {
             "cypressConfig": "apps/sample-angular-app-e2e/cypress.json",
             "devServerTarget": "sample-angular-app:serve:development",
@@ -114,7 +115,7 @@
           }
         },
         "lint": {
-          "builder": "@nrwl/linter:eslint",
+          "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/sample-angular-app-e2e/**/*.{js,ts}"]
@@ -123,6 +124,7 @@
       },
       "tags": [],
       "implicitDependencies": ["sample-angular-app"]
-    }
+    },
+    "util-multilanguage": "libs/util-multilanguage"
   }
 }
